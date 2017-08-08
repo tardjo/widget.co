@@ -29,7 +29,7 @@ class UploadFileMeService
   end
 
   def convert_link_file(params)
-    if params[:upload_file].present? && params[:upload_file][:link_before].present? && params[:upload_file][:link_after].present?
+    if params[:upload_file].present? && params[:upload_file][:base_url].present? && params[:upload_file][:partner].present?
       ConvertFileJob.perform_later(params)
       {notice: 'Convert Link Still Progress'}
     else

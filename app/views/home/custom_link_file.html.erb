@@ -1,12 +1,12 @@
 <div class="padding50px">
   <%= form_tag convert_link_file_path do %>
     <div class="form-group">
-      <label for="exampleInputLinkBefore">Link Before</label>
-      <input type="text" class="form-control" id="exampleInputLinkBefore" name="upload_file[link_before]" placeholder="Link Before" required>
+      <label for="exampleInputBaseUrl">Base Url</label>
+      <input type="url" class="form-control" id="exampleInputBaseUrl" name="upload_file[base_url]" placeholder="Example : http://acme.test/" required>
     </div>
     <div class="form-group">
-      <label for="exampleInputLinkAfter">Link After</label>
-      <input type="text" class="form-control" id="exampleInputLinkAfter" name="upload_file[link_after]" placeholder="Link After" required>
+      <label for="exampleInputParameterPartner">Parameter Partner</label>
+      <input type="text" class="form-control" id="exampleInputParameterPartner" name="upload_file[partner]" placeholder="Example: widget co" required>
     </div>
     <button type="submit" class="btn btn-primary">Convert</button>
     <%= link_to 'Back', root_path, class: 'btn btn-default' %>
