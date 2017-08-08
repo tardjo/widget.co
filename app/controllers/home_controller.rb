@@ -28,6 +28,10 @@ class HomeController < ApplicationController
     redirect_to root_url, message
   end
 
+  def status_convert_file
+    @progress_bars = @progress_bar_service.get_all(params)
+  end
+
   private
     def get_file
       @upload_file = UploadFile.find(params[:id])

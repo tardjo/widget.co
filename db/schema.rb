@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807235708) do
+ActiveRecord::Schema.define(version: 20170808194542) do
+
+  create_table "progress_bars", force: :cascade do |t|
+    t.string   "process_id"
+    t.string   "status"
+    t.string   "base_url"
+    t.string   "parameter_partner"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "upload_files", force: :cascade do |t|
     t.datetime "created_at",             null: false

@@ -6,5 +6,6 @@ class ApplicationController < ActionController::Base
   def initialize
     super
     @upload_file_service = UploadFileMeService.new
+    @progress_bar_service = ProgressBarService.new
   end
 end

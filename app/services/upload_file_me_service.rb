@@ -30,8 +30,13 @@ class UploadFileMeService
 
   def convert_link_file(params)
     if params[:upload_file].present? && params[:upload_file][:base_url].present? && params[:upload_file][:partner].present?
-      ConvertFileJob.perform_later(params)
-      {notice: 'Convert Link Still Progress'}
+      progress_bar = ProgressBar.new(process_id: SecureRandom.urlsafe_base64(nil, false), status: 'in progress', base_url: params[:upload_file][:base_url], parameter_partner: params[:upload_file][:partner])
+      if progress_bar.save
+        ConvertFileJob.perform_later(params, progress_bar)
+        {notice: 'Convert Link Still Progress'}
+      else
+        {alert: 'Something when wrong : please try again'}
+      end
     else
       {alert: 'Something when wrong : invalid parameter'}
     end

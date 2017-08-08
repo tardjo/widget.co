@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete 'upload_files/:id', to: 'home#destroy_upload_files', as: 'destroy_upload_files'
   get 'custom_link_file', to: 'home#custom_link_file', as: 'custom_link_file'
   post 'convert_link_file', to: 'home#convert_link_file', as: 'convert_link_file'
+  get 'status_convert_file', to: 'home#status_convert_file', as: 'status_convert_file'
 
   root 'home#index'
 

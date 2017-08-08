@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  process_id: MyString
+  status: MyString
+  base_url: MyString
+  parameter_partner: MyString
+
+two:
+  process_id: MyString
+  status: MyString
+  base_url: MyString
+  parameter_partner: MyString

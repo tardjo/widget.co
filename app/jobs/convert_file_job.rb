@@ -1,7 +1,7 @@
 class ConvertFileJob < ActiveJob::Base
   queue_as :default
 
-  def perform(params)
+  def perform(params, progress_bar)
     # Do something later
     upload_files = UploadFile.all
     upload_files.each do |upload_file|
@@ -22,6 +22,9 @@ class ConvertFileJob < ActiveJob::Base
       end
 
       File.open(upload_file.file_html.path, "w") {|file| file.puts doc.to_s }
+      
+      progress_bar.status = 'finish'
+      progress_bar.save
     end
   end
 end

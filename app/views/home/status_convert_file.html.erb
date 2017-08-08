@@ -1,0 +1,25 @@
+<div class="padding50px">
+  <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+  <table class="table margintop20px margintop20px">
+      <tr>
+          <th>Process Id</th>
+          <th>Base Url</th>
+          <th>Partner</th>
+          <th>Status</th>
+      </tr>
+
+      <% @progress_bars.each do |progress_bar| %>
+        <tr>
+            <td><%= progress_bar.process_id %></td>
+            <td><%= progress_bar.base_url %></td>
+            <td><%= progress_bar.parameter_partner %></td>
+            <td><%= progress_bar.status %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td class="center-positon" colspan="4">
+            <%= paginate @progress_bars %>
+        </td>
+      </tr>
+  </table>
+</div>
