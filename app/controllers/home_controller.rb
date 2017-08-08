@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :get_file, only: [:destroy_upload_files]
   def index
     @upload_files = @upload_file_service.get_all(params)
   end
@@ -12,6 +13,12 @@ class HomeController < ApplicationController
     redirect_to root_url, message
   end
 
+  def destroy_upload_files
+    message = @upload_file_service.destroy_upload_files(@upload_file)
+
+    redirect_to root_url, message
+  end
+
   def custom_link_file
   end
 
@@ -20,4 +27,9 @@ class HomeController < ApplicationController
 
     redirect_to root_url, message
   end
+
+  private
+    def get_file
+      @upload_file = UploadFile.find(params[:id])
+    end
 end

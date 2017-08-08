@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'upload_files/new', to: 'home#new_upload_files', as: 'new_upload_files'
   post 'upload_files', to: 'home#upload_files', as: 'upload_files'
+  delete 'upload_files/:id', to: 'home#destroy_upload_files', as: 'destroy_upload_files'
   get 'custom_link_file', to: 'home#custom_link_file', as: 'custom_link_file'
   post 'convert_link_file', to: 'home#convert_link_file', as: 'convert_link_file'
 

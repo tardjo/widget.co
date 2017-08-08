@@ -5,10 +5,11 @@
       <% @upload_files.each do |upload_file| %>
           <tr>
               <td><%= link_to "#{upload_file.file_html_file_name}", upload_file.file_html.url %></td>
+              <td><%= link_to 'Delete', destroy_upload_files_path(upload_file.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>
       <tr>
-        <td class="center-positon">
+        <td class="center-positon" colspan="2">
             <%= paginate @upload_files %>
         </td>
       </tr>

@@ -16,9 +16,22 @@ class UploadFileMeService
     end
   end
 
+  def destroy_upload_files(upload_file)
+    if upload_file.present?
+      if upload_file.destroy
+          {notice: 'Delete file successfully'}
+      else
+          {alert: 'Something when wrong : delete file failed'}
+      end
+    else
+      {alert: 'Something when wrong : invalid file'}
+    end
+  end
+
   def convert_link_file(params)
     if params[:upload_file].present? && params[:upload_file][:link_before].present? && params[:upload_file][:link_after].present?
-      
+      ConvertFileJob.perform_later(params)
+      {notice: 'Convert Link Still Progress'}
     else
       {alert: 'Something when wrong : invalid parameter'}
     end
