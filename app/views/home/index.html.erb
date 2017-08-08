@@ -1,0 +1,16 @@
+<div class="padding50px">
+  <%= link_to 'New Upload File', new_upload_files_path, class: 'btn btn-primary' %>
+  <%= link_to 'Custom Link File', custom_link_file_path, class: 'btn btn-default' %>
+  <table class="table margintop20px margintop20px">
+      <% @upload_files.each do |upload_file| %>
+          <tr>
+              <td><%= link_to "#{upload_file.file_html_file_name}", upload_file.file_html.url %></td>
+          </tr>
+      <% end %>
+      <tr>
+        <td class="center-positon">
+            <%= paginate @upload_files %>
+        </td>
+      </tr>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+<div class="padding50px">
+  <%= form_tag upload_files_path, multipart: true do %>
+    <div class="form-group">
+      <label for="exampleInputFile">Uploade New File</label>
+      <input type="file" name="upload_file[file]" id="exampleInputFile" required>
+      <p class="help-block">Example : html file</p>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+    <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+  <% end %>
+</div>
