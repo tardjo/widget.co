@@ -22,9 +22,9 @@ class ConvertFileJob < ActiveJob::Base
       end
 
       File.open(upload_file.file_html.path, "w") {|file| file.puts doc.to_s }
-
-      progress_bar.status = 'finish'
-      progress_bar.save
     end
+
+    progress_bar.status = 'finish'
+    progress_bar.save
   end
 end
